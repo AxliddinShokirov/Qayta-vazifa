@@ -1,0 +1,52 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<style>
+    .bg-image-card {
+    background-image: url('/path/to/your/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+</style>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card" style="background-image: url('/path/to/your/background-image.jpg'); background-size: cover; background-position: center;">
+            <div class="card-body" style="background-color: rgba(255, 255, 255, 0.8);">
+
+                <h4 class="card-title">Qo'shish banner</h4>
+             
+
+                <form method="POST" enctype="multipart/form-data" action="{% url 'createbanner' %}">
+                    {% csrf_token %}
+                    <div class="mb-3 row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Nomi</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text"
+                                   id="example-text-input" name="title"> 
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="example-search-input" class="col-md-2 col-form-label">Search</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="search" 
+                                   id="example-search-input" name="sub_title">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-md-2 col-form-label">rasim</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="file" id="example-email-input" name="img">
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" type="submit">Jo'natish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

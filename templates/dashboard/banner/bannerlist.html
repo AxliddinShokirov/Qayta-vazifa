@@ -1,0 +1,37 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Banner list</h4>
+          
+
+            <div class="table-responsive">
+                <table class="table table-dark mb-0">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nomi</title></th>
+                            <th>mavzusi</th>
+                            <th>rasmimi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for banner in banners %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{banner.title}}</td>
+                            <td>{{banner.sub_title}}</td>
+                            
+                            <td> <a href="{%url 'delete' banner.id%}">O'chirish</a></td>
+                        </tr>
+                        {%endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{%endblock%}
