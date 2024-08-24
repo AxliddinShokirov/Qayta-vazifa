@@ -101,7 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+CSRF_FAILURE_VIEW=[
+    'front.views.csrf_failure_view',
+    'django.views.defaults.bad_request',
+    {'template_name': 'front/csrf_failure.html'},
+    
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
